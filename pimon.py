@@ -15,6 +15,9 @@ colorlist = [[0,0,0],[1,0,0],[1,1,0],[0,1,0],[0,1,1],[0,0,1],[1,0,1],[1,1,1]]
 #				sudo pip install psutil
 #	And then you can check by making sure you get no errors when you execute:
 #				sudo python -c "import psutil"
+#
+#
+#
 
 # Initialize the plate
 lcd = LCD.Adafruit_CharLCDPlate()
