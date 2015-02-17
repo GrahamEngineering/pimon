@@ -113,8 +113,9 @@ while GoBabyGo:
 		updateColor()
 
 	# This is just a temp placeholder
-	lcd.set_cursor(11, 1)
+	lcd.set_cursor(11, 0)
 	lcd.message(str(tempf))
+	
 		
 	# Sleep for 1 second, then do the next update
 	try:
