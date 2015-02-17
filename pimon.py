@@ -74,6 +74,8 @@ while GoBabyGo:
 	# Retrieve CPU and RAM usage
 	cpu = psutil.cpu_percent()
 	ram = psutil.virtual_memory()
+	# Check the temp of the sensor
+	tempf = tr.tempf
 	
 	# Check the length of the floating point number.  We want to make sure it's pretty in the output.
 	if len(str(cpu)) < 4:
@@ -110,16 +112,19 @@ while GoBabyGo:
 	else:
 		updateColor()
 
-	
+	# This is just a temp placeholder
+	lcd.set_cursor(11, 1)
+	lcd.message(str(tempf))
 		
 	# Sleep for 1 second, then do the next update
 	try:
 		time.sleep (1)
-		print tr.temps
+		
 	except KeyboardInterrupt:
 		print "Killing button listener and exiting..."
 		x.stop = True
 		lcd.clear()
 		lcd.set_backlight(False)
+		lcd.enable_display(False)
 		tr.stopbit = 0
 		exit()
