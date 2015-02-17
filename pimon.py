@@ -115,6 +115,7 @@ while GoBabyGo:
 	# Sleep for 1 second, then do the next update
 	try:
 		time.sleep (1)
+		print tr.temps
 	except KeyboardInterrupt:
 		print "Killing button listener and exiting..."
 		x.stop = True

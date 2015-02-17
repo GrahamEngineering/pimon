@@ -11,6 +11,7 @@ class tempreader:
 		self.base_dir = '/sys/bus/w1/devices/'
 		self.device_folder = glob.glob(self.base_dir + '28*')[0]
 		self.device_file = self.device_folder + '/w1_slave'
+		self.temps = ''
 
 	def read_temp_raw(self):
 	    f = open(self.device_file, 'r')
@@ -32,7 +33,7 @@ class tempreader:
 	def startup(self):
 		self.stopbit = 1
 		while self.stopbit:
-			print(self.read_temp())	
+			self.temps = self.read_temp()
 			time.sleep(1)
 	def stop(self):
 		self.stopbit = 0
