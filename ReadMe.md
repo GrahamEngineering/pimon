@@ -1,4 +1,4 @@
-This script requires pydispatch and psutil to be installed
+This script requires pydispatch and psutil to be installed, as well as Adafruit_CharLCD
 
 It'll show RAM and CPU usage in an Adafruit CharLCDPlate (16x2) and allow for the use of buttons to change the default color.
 

@@ -5,6 +5,7 @@ import psutil
 import threading
 from pydispatch import dispatcher
 import lcdbut
+import tempreader
 
 color=3
 colorlist = [[0,0,0],[1,0,0],[1,1,0],[0,1,0],[0,1,1],[0,0,1],[1,0,1],[1,1,1]]
@@ -18,6 +19,7 @@ colorlist = [[0,0,0],[1,0,0],[1,1,0],[0,1,0],[0,1,1],[0,0,1],[1,0,1],[1,1,1]]
 #
 #
 #
+
 
 # Initialize the plate
 lcd = LCD.Adafruit_CharLCDPlate()
@@ -60,6 +62,12 @@ x = lcdbut.lcdbut(lcd)
 t = threading.Thread(target=x.startup)
 
 t.start()
+
+tr = tempreader.tempreader()
+trThread = threading.Thread(target=tr.startup)
+trThread.daemon = True
+trThread.start()
+
 # Start checking the processor and memory
 while GoBabyGo:
 
@@ -112,4 +120,5 @@ while GoBabyGo:
 		x.stop = True
 		lcd.clear()
 		lcd.set_backlight(False)
+		tr.stopbit = 0
 		exit()
