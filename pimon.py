@@ -91,7 +91,7 @@ while GoBabyGo:
 	# Now set color threshholds.
 	#	If CPU usage is above 75% then set the color of the display to red
 	#	If CPU usage is above 50% (but less than 75%) set the color to yellow
-	#	If CPU usage is under 50%, set the color to green
+	#	If CPU usage is under 50%, set the color to green (or other default color you've chosen via buttons)
 	if cpu >= 75.0 or ram.percent >=75.0:
 		lcd.set_color(1, 0, 0)
 	elif (cpu >= 50.0 and cpu < 75) or (ram.percent >= 50 and ram.percent < 75.0):
