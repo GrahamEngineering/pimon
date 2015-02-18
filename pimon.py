@@ -17,7 +17,7 @@ colorlist = [[0,0,0],[1,0,0],[1,1,0],[0,1,0],[0,1,1],[0,0,1],[1,0,1],[1,1,1]]
 #	And then you can check by making sure you get no errors when you execute:
 #				sudo python -c "import psutil"
 #
-#
+#	You also, of course, need pydispatch installed.  Because however they do that is magical and I don't have to implement it myself.
 #
 
 
@@ -75,7 +75,8 @@ while GoBabyGo:
 	cpu = psutil.cpu_percent()
 	ram = psutil.virtual_memory()
 	# Check the temp of the sensor
-	tempf = tr.tempf
+	tempf = round(tr.tempf, 2)
+	
 	
 	# Check the length of the floating point number.  We want to make sure it's pretty in the output.
 	if len(str(cpu)) < 4:
