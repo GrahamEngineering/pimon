@@ -9,7 +9,11 @@ class tempreader:
 		os.system('modprobe w1-therm')
 		self.stopbit = 0
 		self.base_dir = '/sys/bus/w1/devices/'
-		self.device_folder = glob.glob(self.base_dir + '28*')[0]
+		self.device_folder = glob.glob(self.base_dir + '28*')
+		if len(self.device_folder) == 0:
+			self.device_folder = ""
+		else:
+			self.device_folder = self.device_folder[0]
 		self.device_file = self.device_folder + '/w1_slave'
 		self.tempc = ''
 		self.tempf = ''
@@ -32,10 +36,12 @@ class tempreader:
 		temp_f = temp_c * 9.0 / 5.0 + 32.0
 		return temp_c, temp_f
 	def startup(self):
-		if self.sdevice_folder == "" then:
+		if self.device_folder == "":
 			self.stopbit = 0
+			print "No temp sensor found"
 		else:
 			self.stopbit = 1
+			print "Temp sensor found"
 		try:
 			while self.stopbit:
 				temps = self.read_temp()
