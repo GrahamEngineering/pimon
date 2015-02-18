@@ -52,3 +52,9 @@ class tempreader:
 			self.stopbit = 0
 	def stop(self):
 		self.stopbit = 0
+
+
+if __name__ == "__main__":
+	tr = tempreader()
+	tr.startup()
+	
