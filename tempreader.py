@@ -32,7 +32,10 @@ class tempreader:
 		temp_f = temp_c * 9.0 / 5.0 + 32.0
 		return temp_c, temp_f
 	def startup(self):
-		self.stopbit = 1
+		if self.sdevice_folder == "" then:
+			self.stopbit = 0
+		else:
+			self.stopbit = 1
 		try:
 			while self.stopbit:
 				temps = self.read_temp()
